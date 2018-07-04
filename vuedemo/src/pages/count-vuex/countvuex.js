@@ -21,15 +21,24 @@ new Vue({
         ...mapGetters(['evenOrOdd','isEven'])
     },
     methods:{
+        // increment:function(){
+        //     this.$store.dispatch('incrementActions')
+        // },
+        // decrement:function(){
+        //     this.$store.dispatch('decrementActions')
+        // },
+        // evenAdd:function(){
+        //     this.$store.dispatch('evenAddActions',2)
+        // }
+        ...mapActions(['incrementActions','decrementActions','evenAddActions']),
         increment:function(){
-            this.$store.dispatch('incrementActions')
+            this.incrementActions()
         },
         decrement:function(){
-            this.$store.dispatch('decrementActions')
+            this.decrementActions()
         },
         evenAdd:function(){
-            this.$store.dispatch('evenAddActions',2)
+            this.evenAddActions(2)
         }
-        // ...mapActions(['incrementActions','decrementActions',''])
     }
 })
