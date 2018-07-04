@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cart</title>
+    <style>
+        .line{
+            width:400px;
+            border:1px solid #ccc;
+        }
+
+        ul,li{
+            list-style:none;
+        }
+
+        [disabled]{
+            background:#ccc;
+        }
+
+        h5{
+            margin:0;
+            padding:0
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="product">商品列表
+            <ul v-for="list in productList"
+            v-bind:key="list.id">
+                <li>
+                    <h5>产品名称：{{list.product}}</h5>
+                    <span>单价：{{list.price}}</span>
+                    <div>
+                        <span>库存：{{list.count}}</span>
+                    </div>
+                    <button v-on:click="addCart(list)"
+                    v-bind:disabled="list.count <= 0">添加到购物车</button>
+                </li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div id="cart-list">购物车列表
+            <ul v-for="(list,index) in cartList">
+                <li>
+                    <h5>产品名称：{{list.product}}</h5>
+                    <span>单价:{{list.price}}</span>
+                    <span>数量：{{list.num}}</span>
+                    <button v-on:click="decrement(list)"
+                    v-bind:disabled="list.num <= 1">-</button>
+                    <button v-on:click="increment(list)"
+                    v-bind:disabled="productList[index].count === 0">+</button>
+                    <span>合计:{{list.total}}</span>
+                </li>
+            </ul>
+            <div>总价：{{totalPrice}}</div>
+            <button v-on:click="clear">点击结算</button>
+        </div>
+        <div id="pay"></div>
+    </div>
+</body>
+</html>

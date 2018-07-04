@@ -20,6 +20,10 @@ export default {
                 {
                     title:'计数器-vuex',
                     link:'countvuex.html'
+                },
+                {
+                    title:'购物车-bus',
+                    link:'cart.html'
                 }
             ]
         }
@@ -48,6 +52,7 @@ export default {
 		
 		li{
 			font-family:"Monaco";
+            cursor:pointer;
 		}
 </style>
 

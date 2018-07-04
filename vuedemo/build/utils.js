@@ -6,6 +6,7 @@ var glob = require('glob')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var PAGE_PATH = path.resolve(__dirname, '../src/pages')
 var merge = require('webpack-merge')
+var packageConfig = require('../package.json')
 
 
 //多入口配置
