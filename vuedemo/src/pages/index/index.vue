@@ -24,6 +24,10 @@ export default {
                 {
                     title:'购物车-bus',
                     link:'cart.html'
+                },
+                {
+                    title:'打字机',
+                    link:'typer.html'
                 }
             ]
         }
