@@ -26,6 +26,10 @@ export default {
                     link:'cart.html'
                 },
                 {
+                    title:'购物车-vuex',
+                    link:'cartvuex.html'
+                },
+                {
                     title:'打字机',
                     link:'typer.html'
                 }

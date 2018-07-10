@@ -56,7 +56,16 @@ new Vue({
             bus.$emit("decrement",idx)
         },
         clear:function(){
-            this.cartList=[]
+            let param=this.cartList
+            fetch(url.listAdd,param).then(res=>{
+                let r=window.confirm(res.data.message)
+                if(r){
+                    this.cartList=[]
+                    window.location.reload();
+                }else{
+                    return
+                }
+            })
         }
 
     },
@@ -72,5 +81,16 @@ new Vue({
         bus.$on("decrement",function(idx){
             _this.productList[idx].count ++
         })
+    },
+    filters:{
+        currency:function(price){
+            let str=price + ``;
+            if(str.indexOf(".")>-1){
+                let arr=str.split(".")
+                return arr[0] + `.` +arr[1].substr(0,2)
+            }else{
+                return str + `.00`
+            }
+        }
     }
 })
