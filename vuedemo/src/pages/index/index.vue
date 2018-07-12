@@ -41,8 +41,12 @@ export default {
             ],
             componentlists:[
                 {
-                    title:'number-input',
+                    title:'数字输入组件',
                     link:'number-input.html'
+                },
+                {
+                    title:'tab组件-slot分发',
+                    link:'tabslot.html'
                 }
             ]
         }
