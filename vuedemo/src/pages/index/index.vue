@@ -1,7 +1,12 @@
 <template>
     <div>
         <h2>vue-demo</h2>
-        <ul v-for="list in lists"
+        <ul v-for="list in demolists"
+        v-bind:key="list.title">
+            <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
+        </ul>
+        <h2>vue-组件</h2>
+        <ul v-for="list in componentlists"
         v-bind:key="list.title">
             <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
         </ul>
@@ -12,7 +17,7 @@
 export default {
     data:function(){
         return {
-            lists:[
+            demolists:[
                 {
                     title:'计数器-vue',
                     link:'count.html'
@@ -32,6 +37,12 @@ export default {
                 {
                     title:'打字机',
                     link:'typer.html'
+                }
+            ],
+            componentlists:[
+                {
+                    title:'number-input',
+                    link:'number-input.html'
                 }
             ]
         }
