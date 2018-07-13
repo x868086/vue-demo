@@ -25,6 +25,7 @@
         },
         methods:{
             init:function(){
+                //页面初始化时先读取tab组件的子组件，遍历子组件取label名称组成tablists实现tab标题
                 let val=this.$children;
                 val[this.currentIdx].isshow=true;
                 val.forEach(item=>{
@@ -41,7 +42,8 @@
                 let val=this.$children;
                 val.forEach((e,i,a)=>{
                     if(i===this.currentIdx){
-                        a[i].isshow=true;
+                        // tab index===pannel index 时显示
+                        e.isshow=true
                     }else{
                         e.isshow=false;
                     }
