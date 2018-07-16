@@ -47,6 +47,10 @@ export default {
                 {
                     title:'tab组件-slot分发',
                     link:'tabslot.html'
+                },
+                {
+                    title:'问卷调查组件-动态异步加载',
+                    link:'questions.html'
                 }
             ]
         }
