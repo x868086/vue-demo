@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="header">问卷调查</div>
         <div class="content">
             <keep-alive>
@@ -55,15 +55,17 @@
             send:function(){
                 if(this.qa.length<this.length){
                     window.confirm("请完善资料")
+                    return
+                }else if(this.qa.length === this.length){
+                    window.confirm("提交成功！")
                 }
-                console.log(this.qa)
             }
         },
         components:{
             'page0':{
                 template:`
                 <div>
-                    <p>性别</p>
+                    <p>1.请问你的性别是：</p>
                     <label for="male">男</label>
                     <input type="radio" id="male" value="male" v-model="content.message">
                     <label for="female">女</label>
@@ -83,26 +85,31 @@
             'page1':{
                 template:`
                 <div>
-                    <select v-model="content.message">
-                        <option disabled value="">请选择</option>
-                        <option>奔驰</option>
-                        <option>宝马</option>
-                        <option>奥迪</option>
-                    </select>
+                    <p>2.轻选择您的兴趣爱好：</p>
+                    <input type="checkbox" id="read" value="read" v-model="content.message">
+                    <label for="read">阅读</label>
+                    <input type="checkbox" id="swim" value="swim" v-model="content.message">
+                    <label for="swim">游泳</label>
+                    <input type="checkbox" id="runing" value="runing" v-model="content.message">
+                    <label for="runing">跑步</label>
+                    <input type="checkbox" id="movie" value="movie" v-model="content.message">
+                    <label for="movie">看电影</label>
+                    <input type="checkbox" id="music" value="music" v-model="content.message">
+                    <label for="music">听音乐</label>
                 </div>
                 `,
                 data:function(){
                     return {
                         content:{
                             id:1,
-                            message:""
+                            message:[]
                         }
                     }
                 }
             },
             'page2':{
                 template:`<div>
-                <p></p>
+                <p>3.请介绍一下你自己：</p>
                 <textarea v-model="content.message" placeholder="add multiple lines"></textarea>
                 </div>`,
                 data:function(){
@@ -132,10 +139,48 @@ div,button{
     padding:0px;
 }
 
-.header,.footer{
-    height:30px;
+.container{
+    border:1px solid #ddd;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.content{
+    height:400px;
+    margin-left:30px;
+}
+
+.header{
+    height:50px;
     text-align:center;
     background:#41B883;
+    line-height:50px;
+    color:white;
+    font-weight:bold;
+}
+
+.footer{
+    height:30px;
+    text-align:center;
+}
+
+button{
+    width:100px;
+    height:30px;
+    border-radius:3px;
+    background:#41B883;
+    color:white;
+    border:0px;
+    font-weight:bold;
+}
+
+[disabled]{
+    background:rgb(77, 131, 133);
+}
+
+textarea{
+    height:200px;
+    width:300px;
 }
 
 </style>
