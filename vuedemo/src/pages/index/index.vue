@@ -27,16 +27,12 @@ export default {
                     link:'countvuex.html'
                 },
                 {
-                    title:'购物车-bus',
-                    link:'cart.html'
-                },
-                {
-                    title:'购物车-vuex',
-                    link:'cartvuex.html'
-                },
-                {
                     title:'打字机',
                     link:'typer.html'
+                },
+                {
+                    title:'flexible',
+                    link:'flexible.html'
                 }
             ],
             componentlists:[
@@ -55,6 +51,14 @@ export default {
                 {
                     title:'排序表格组件',
                     link:'table.html'
+                },
+                                {
+                    title:'购物车组件-bus事件总线',
+                    link:'cart.html'
+                },
+                {
+                    title:'购物车组件-vuex状态管理',
+                    link:'cartvuex.html'
                 }
             ]
         }
