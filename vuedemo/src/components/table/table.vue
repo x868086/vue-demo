@@ -10,7 +10,7 @@
                     <span v-on:click="sortArray('age','down')">↓</span></td>
                 <td>分数
                     <span v-on:click="sortArray('score','up')">↑</span>
-                    <span v-on:click="sortArray('age','down')">↓</span></td>
+                    <span v-on:click="sortArray('score','down')">↓</span></td>
                 <td>时间</td>
             </tr>
             <tr 
