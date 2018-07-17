@@ -2,7 +2,8 @@ let host="http://rap2api.taobao.org/app/mock/18520/";
 
 let url={
     cartList:"cartList",
-    listAdd:"listAdd"
+    listAdd:"listAdd",
+    tablelist:"tablelist"
 }
 
 for(let key in url){

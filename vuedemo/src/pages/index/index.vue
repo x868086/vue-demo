@@ -51,6 +51,10 @@ export default {
                 {
                     title:'问卷调查组件-动态异步加载',
                     link:'questions.html'
+                },
+                {
+                    title:'排序表格组件',
+                    link:'table.html'
                 }
             ]
         }
