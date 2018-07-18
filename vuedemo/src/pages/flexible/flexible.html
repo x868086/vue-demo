@@ -9,22 +9,67 @@
         /* html{
             font-size:37.5px;
         } */
-        html,body,div{
-            margin:0px;
-            padding:0px;
+        html,body,div,ul,li,p,img,span{
+            margin:0rem;
+            padding:0rem;
+            box-sizing:border-box;
         }
+
+        ul,li{
+            list-style:none;
+        }
+
         #container{
             width:10rem;
-            height:0.4rem;
-            background:green;
+            border:0.0133rem solid red;
+            padding:0.1333rem;
         }
+
+        .main{
+            border:0.0133rem solid green;
+        }
+
+        .prolist{
+            padding-top:0.1733rem;
+            padding-bottom:0.1733rem;
+        }
+
+        .banner{
+            width:10rem;
+            height:6.5333rem;
+        }
+
+        .banner>img{
+            border:0.0133rem solid blue;
+        }
+
+
+
     </style>
 </head>
 <body>
     <div id="app">
         <div id="container">
             <div class="content">
-
+                <div class="banner">
+                    <img src="http://dummyimage.com/370x245" alt="">
+                </div>
+                <div class="main">
+                    <ul>
+                        <li class="prolist">
+                            <div class="product">
+                                <img src="" alt="#" class="pdimg">
+                                <p></p>
+                                <img src="" alt="" class="dubleimg">
+                                <span>$ 266</span><span>满减</span>
+                                <p class="pddes">一小时疯抢</p>
+                                <div>
+                                    <button>马上抢!</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
