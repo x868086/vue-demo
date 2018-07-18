@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>flexible</title>
     <style>
-        /* html{
-            font-size:37.5px;
-        } */
         html,body,div,ul,li,p,img,span{
             margin:0rem;
             padding:0rem;
@@ -21,29 +18,105 @@
 
         #container{
             width:10rem;
-            border:0.0133rem solid red;
-            padding:0.1333rem;
+            background:#f32a4c;
+
         }
 
         .main{
-            border:0.0133rem solid green;
+            padding:0rem 0.1333rem;
         }
 
         .prolist{
-            padding-top:0.1733rem;
-            padding-bottom:0.1733rem;
+            margin-bottom:0.0133rem;
         }
 
-        .banner{
+        .banner>img{
             width:10rem;
             height:6.5333rem;
         }
 
-        .banner>img{
-            border:0.0133rem solid blue;
+        .product{
+            position:relative;
+            background:#fffffd;
+            padding-top:0.2667rem;
+            padding-bottom:0.1867rem;
+        }
+
+        .pdimg{
+            width:2.3467rem;
+            height:2.3467rem;
+        }
+
+        .pdcontent{
+            width:6.96rem;
+            position:absolute;
+            left:2.56rem;
+            top:0.2667rem;
+        }
+
+        .pdname{
+            font-size:14px;
+            font-family:sans-serif;
+        }
+
+        .price{
+            font-size:18px;
+            color:#f32a4c;
+            font-weight:bold;
+            font-family:sans-serif;
         }
 
 
+        .discount{
+            font-size:12px;
+            color:#f32a4c;
+            font-weight:bold;
+            font-family:sans-serif;
+        }
+
+        .buyer{
+            color:#ff6a30;
+            font-size:12px;
+            font-family:sans-serif;
+        }
+
+
+
+        .duble{
+            color:white;
+            background:#f32a4c;
+            padding:0.0267rem;
+            font-size:14px;
+            width:1.3333rem;
+            font-weight:bold;
+            text-align:center;
+            font-family:sans-serif;
+        }
+
+        .getpd{
+            color:white;
+            background:#f32a4c;
+            padding:0.0267rem;
+            font-size:18px;
+            width:2.1333rem;
+            text-align:center;
+            font-weight:bold;
+            font-family:sans-serif;
+            position:absolute;
+            bottom:0.2rem;
+            right:0.2533rem;
+        }
+
+        /*适配iphone5 当iphone5界面时默认根节点字体32px时,
+        即具备[style="font-size:32px;"]属性时
+        修改.pdname,.price,.getpd样式的字体为12px*/
+
+        [style="font-size: 32px;"] .pdname,
+        [style="font-size: 32px;"] .price,
+        [style="font-size: 32px;"] .getpd
+        {
+            font-size:12px;
+        }
 
     </style>
 </head>
@@ -52,20 +125,21 @@
         <div id="container">
             <div class="content">
                 <div class="banner">
-                    <img src="http://dummyimage.com/370x245" alt="">
+                    <img v-bind:src="bannerImage" alt="#">
                 </div>
                 <div class="main">
-                    <ul>
+                    <ul v-for="list in productList">
                         <li class="prolist">
                             <div class="product">
-                                <img src="" alt="#" class="pdimg">
-                                <p></p>
-                                <img src="" alt="" class="dubleimg">
-                                <span>$ 266</span><span>满减</span>
-                                <p class="pddes">一小时疯抢</p>
-                                <div>
-                                    <button>马上抢!</button>
-                                </div>
+                                <img v-bind:src="list.productimage" alt="#" class="pdimg">
+                                    <div class="pdcontent">
+                                        <p class="pdname">{{list.productname}}</p>
+                                        <span class="duble">双11价</span>
+                                        <span class="price">¥{{list.price}}</span>
+                                        <span class="discount">({{list.discount}})</span>
+                                        <p class="buyer">一小时疯抢{{list.buyercount}}件</p>
+                                    </div>
+                                    <div class="getpd">马上抢!</div>
                             </div>
                         </li>
                     </ul>

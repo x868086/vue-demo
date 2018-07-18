@@ -1,15 +1,23 @@
 <template>
     <div>
-        <h2>vue-demo</h2>
-        <ul v-for="list in demolists"
-        v-bind:key="list.title">
+        <h2>vue-项目</h2>
+        <ul v-for="list in projectlist"
+            v-bind:key="list.title">
             <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
         </ul>
+
         <h2>vue-组件</h2>
         <ul v-for="list in componentlists"
         v-bind:key="list.title">
             <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
         </ul>
+
+        <h2>vue-demo</h2>
+        <ul v-for="list in demolists"
+        v-bind:key="list.title">
+            <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
+        </ul>
+        
     </div>
 </template>
 
@@ -17,22 +25,14 @@
 export default {
     data:function(){
         return {
-            demolists:[
+            projectlist:[
                 {
-                    title:'计数器-vue',
-                    link:'count.html'
-                },
-                {
-                    title:'计数器-vuex',
-                    link:'countvuex.html'
+                    title:'H5促销活动页面-适配移动端',
+                    link:'flexible.html'
                 },
                 {
                     title:'打字机',
                     link:'typer.html'
-                },
-                {
-                    title:'flexible',
-                    link:'flexible.html'
                 }
             ],
             componentlists:[
@@ -59,6 +59,16 @@ export default {
                 {
                     title:'购物车组件-vuex状态管理',
                     link:'cartvuex.html'
+                }
+            ],
+            demolists:[
+                {
+                    title:'计数器-vue',
+                    link:'count.html'
+                },
+                {
+                    title:'计数器-vuex',
+                    link:'countvuex.html'
                 }
             ]
         }
