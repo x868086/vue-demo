@@ -6,6 +6,12 @@
             <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
         </ul>
 
+        <h2>页面布局</h2>
+        <ul v-for="list in layout"
+            v-bind:key="list.title">
+            <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
+        </ul>
+
         <h2>vue-项目</h2>
         <ul v-for="list in projectlist"
             v-bind:key="list.title">
@@ -37,7 +43,7 @@ export default {
                     link:'flexible.html'
                 },
                 {
-                    title:'商业站点',
+                    title:'企业介绍网站',
                     link:'business.html'
                 },
                 {
@@ -53,6 +59,48 @@ export default {
                 {
                     title:'HTML UI 提示框',
                     link:'alert.html'
+                },
+                {
+                    title:'HTML UI 卡片样式',
+                    link:'card.html'
+                },
+                {
+                    title:'HTML UI 按钮样式',
+                    link:'button.html'
+                },
+                {
+                    title:'HTML UI form表单',
+                    link:'form.html'
+                },
+                {
+                    title:'HTML UI 点击折叠菜单',
+                    link:'nav2.html'
+                },
+                {
+                    title:'HTML UI 顶部导航菜单1',
+                    link:'nav1.html'
+                },
+                {
+                    title:'HTML UI 顶部导航菜单2',
+                    link:'nav3.html'
+                }
+            ],
+            layout:[
+                {
+                    title:'页面布局 响应式栅格布局',
+                    link:'flex_grid.html'
+                },
+                {
+                    title:'页面布局 flex绝对居中布局',
+                    link:'flex_absolute.html'
+                },
+                {
+                    title:'页面布局 flex媒体对象',
+                    link:'flex_media.html'
+                },
+                {
+                    title:'页面布局 flex三栏布局',
+                    link:'flex_three.html'
                 }
             ],
             componentlists:[
