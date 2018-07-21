@@ -27,8 +27,12 @@
         }
 
         .prolist{
-            margin-bottom:0.0133rem;
+            margin-bottom:1px;
         }
+
+        /* .main>ul{
+            margin-bottom:0.0133rem;
+        } */
 
         .banner>img{
             width:10rem;
@@ -128,8 +132,10 @@
                     <img v-bind:src="bannerImage" alt="#">
                 </div>
                 <div class="main">
-                    <ul v-for="list in productList">
-                        <li class="prolist">
+                    <ul>
+                        <li class="prolist"
+                        v-for="list in productList"
+                        v-bind:key="list.name">
                             <div class="product">
                                 <img v-bind:src="list.productimage" alt="#" class="pdimg">
                                     <div class="pdcontent">

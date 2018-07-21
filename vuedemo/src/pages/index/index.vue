@@ -1,5 +1,11 @@
 <template>
     <div>
+        <h2>HTML UI 组件</h2>
+        <ul v-for="list in htmlui"
+            v-bind:key="list.title">
+            <li v-on:click="changeNav(list)"><a>{{list.title}}</a></li>
+        </ul>
+
         <h2>vue-项目</h2>
         <ul v-for="list in projectlist"
             v-bind:key="list.title">
@@ -31,8 +37,22 @@ export default {
                     link:'flexible.html'
                 },
                 {
+                    title:'商业站点',
+                    link:'business.html'
+                },
+                {
                     title:'打字机',
                     link:'typer.html'
+                },
+                {
+                    title:'test',
+                    link:'test.html'
+                }
+            ],
+            htmlui:[
+                {
+                    title:'HTML UI 提示框',
+                    link:'alert.html'
                 }
             ],
             componentlists:[
