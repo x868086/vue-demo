@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,li,img,a{
+            margin:0px;
+            padding:0px;
+        }
+
+        ul,li{
+            list-style:none;
+        }
+
+        a{
+            text-decoration:none;
+            color:#ccc;
+        }
+
+        .carousel{
+            position:relative;
+            width:480px;
+            height:360px;
+            margin-bottom:20px;
+            overflow:hidden;
+            /*超出部分不显示*/
+        }
+
+        .img-wrap{
+            position:absolute;
+            font-size:0px;
+        }
+
+        .img-wrap li,.img-view li{
+            display:inline-block;
+            font-size:16px;
+        }
+
+        .play{
+            display:inline-block;
+            width:30px;
+            height:30px;
+            border:1px solid #ccc;
+            border-radius:50%;
+            background-color:rgba(0,0,0,0.8);
+            opacity:0.5;
+            position:absolute;
+            top:50%;
+            transform:translate(0,-50%);
+            font-size:30px;
+            text-align:center;
+            line-height:30px;
+        }
+
+        .play:hover{
+            opacity:0.7;
+        }
+
+        .next{
+            right:10px;
+        }
+
+        .prev{
+            left:10px;
+        }
+
+        .img-view img{
+            width:90px;
+            height:70px;
+            cursor:pointer;
+        }
+
+        .img-view{
+            position:absolute;
+            /*绝对定位，父元素要有明确的宽高才能实现定位*/
+            bottom:10px;
+            width:100%;
+            /*!!!!!!宽度必须设定后text-align才能生效，凡是对齐和居中的设置都必须有明确长度或宽度的父容器*/
+            text-align:center;
+        }
+
+        .img-view li{
+            opacity:0.3;
+        }
+
+        .img-view .active{
+            border:3px solid #ccc;
+            opacity:1;
+        }
+    </style>
+        <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js">
+        </script>
+</head>
+<body>
+    <div id="container">
+        <div class="carousel">
+            <ul class="img-wrap">
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/29.jpg" alt=""></li>
+            </ul>
+            <a href="" class="play prev">﹤</a>
+            <a href="" class="play next">﹥</a>
+            <ul class="img-view">
+                <li class="active"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt=""></li>
+                <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/29.jpg" alt=""></li>
+            </ul>
+        </div>
+
+        <div class="carousel">
+                <ul class="img-wrap">
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/29.jpg" alt=""></li>
+                </ul>
+                <a href="" class="play prev">﹤</a>
+                <a href="" class="play next">﹥</a>
+                <ul class="img-view">
+                    <li class="active"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt=""></li>
+                    <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/29.jpg" alt=""></li>
+                </ul>
+            </div>
+    </div>
+    
+</body>
+</html>
