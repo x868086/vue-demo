@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="nav" />
+  <meta charset="utf-8">
+  <title>nav</title>
+<style id="jsbin-css">
+html,body,div,ul,li,a{
+	margin:0px;
+	padding:0px;
+}
+
+html{
+	background:#333;
+}
+
+a{
+	text-decoration:none;
+	color:#333;
+	font-family:Arail;
+	font-weight:bold;
+}
+
+ul,li{
+	list-style:none;
+}
+
+.nav1{
+	width:800px;
+	background:#fff;
+	padding:20px;
+	font-size:0px;
+	margin:0 auto;
+}
+
+.nav1 ul>li{
+	display:inline;
+	font-size:16px;
+	position:relative;
+}
+
+.nav1 ul>li>a{
+	padding:20px;
+	position:relative;
+}
+
+span{
+  display:inline-block;
+	height:1px;
+	padding-top:3px;
+	width:0%;
+	background:#33ff66;
+	position:absolute;
+	top:95%;
+	left:0;
+	transition:all 0.5s;
+}
+
+.nav-list>a{
+	border-bottom:2px solid #ccc;
+	border-radius:3px;
+	display:block;
+	padding:10px;
+}
+
+.nav-list{
+	width:160px;
+	text-align:center;
+	border-radius:3px;
+	background:#fff;
+	position:absolute;
+	left:0px;
+	top:200%;
+	display:none;
+}
+
+ .nav1 ul>li:hover >a{
+	background:#eee;
+}
+
+.nav1 ul>li:hover span{
+	display:block;
+  width:100%;
+}
+
+.nav1 ul>li:hover .nav-list{
+	display:block;
+}
+
+</style>
+</head>
+<body>
+<div class="nav1">
+  <ul class="nav-title">
+    <li>
+			<a href="#">HOME
+			<span></span>
+			</a>
+		</li>
+
+    <li><a href="#">ABOUTUS
+			<span></span>
+			</a>
+		</li>
+    <li><a href="#">SHORTCODES
+			<span></span>
+			</a>
+				<div class="nav-list">
+					<a href="#">custmenu1</a>
+					<a href="#">custmenu2</a>
+					<a href="#">custmenu3</a>
+				</div>
+		</li>
+    <li><a href="#">PAGES
+			<span></span>
+			</a>
+		</li>
+    <li><a href="#">PROTFOLIO
+			<span></span>
+			</a>
+			  <div class="nav-list">
+					<a href="#">custmenu1</a>
+					<a href="#">custmenu2</a>
+					<a href="#">custmenu3</a>
+					<a href="#">custmenu4</a>
+					<a href="#">custmenu5</a>
+					<a href="#">custmenu6</a>
+				</div>
+		</li>
+    <li><a href="#">CONTACTUS
+			<span></span>
+			</a>
+		</li>
+  </ul>
+</div>
+</body>
+</html>

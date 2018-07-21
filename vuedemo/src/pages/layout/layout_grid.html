@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="flex格栅布局" />
+  <meta charset="utf-8">
+  <title>layout</title>
+<style id="jsbin-css">
+#container{
+	margin: 0 auto;
+	max-width:1000px;
+}
+
+.cont1,.cont2,.cont3{
+	text-align:center;
+	background:#ccc;
+	padding:5px;
+	box-shadow:3px 3px 3px #ccc;
+	display:flex;
+	flex-direction:column;
+	margin-bottom:20px;
+}
+
+.grid{
+	padding:10px;
+	text-align:center;
+	margin:5px;
+	background:#eee;
+}
+
+
+/*cont1*/
+.wrap1,.wrap2,.wrap3,.wrap4{
+  display:flex;
+}
+
+.wrap1 .grid,.wrap2 .grid,.wrap3 .grid,.wrap4 .grid{
+  flex-grow:1;
+  flex-shrink:1;
+	flex-basis:100%;
+}
+
+
+/*cont2*/
+.wrap2-1,.wrap2-2,.wrap2-3,.wrap2-4{
+  display:flex;
+}
+
+.wrap2-1 .grid:first-child{
+	flex-grow:0; 
+	flex-shrink:0;
+	flex-basis:50%;
+}
+
+.auto{
+	flex-grow:1;
+}
+
+.wrap2-2 .grid:first-child{
+	flex-grow:0;
+	flex-shrink:0;
+	flex-basis:33.3333333%;
+}
+
+.wrap2-3 .grid:first-child{
+	flex-grow:0;
+	flex-shrink:0;
+	flex-basis:25%;
+}
+
+.wrap2-3 .grid:last-child{
+	flex-grow:0;
+	flex-shrink:0;
+	flex-basis:33.3333333%;
+}
+
+.wrap2-4 .grid{
+	flex-grow:1;
+	flex-shrink:1;
+	flex-basis:100%;
+}
+
+/*grid3*/
+.wrap3-1,.wrap3-2,.wrap3-3,.wrap3-4{
+  display:flex;
+}
+
+.wrap3-1 .grid,.wrap3-2 .grid,.wrap3-3 .grid,.wrap3-4 .grid{
+	flex-grow:1;
+	flex-shrink:1;
+	flex-basis:100%;
+}
+
+/*媒体查询*/
+@media (max-width:900px){
+  
+  .wrap3-1,.wrap3-2,.wrap3-3,.wrap3-4{
+		flex-wrap:wrap;
+		justify-content:space-around;
+}
+	
+	.wrap3-1 .grid,.wrap3-2 .grid,.wrap3-3 .grid,.wrap3-4 .grid{
+	flex-grow:0;
+	flex-shrink:1;
+	flex-basis:90%;
+}
+  
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<div id="container">
+  <div class="cont1">1.flex布局-格栅-相等比例。调整窗口大小查看效果。
+    <div class="wrap1">
+      <div class="grid">1/2</div>
+      <div class="grid">1/2</div>
+    </div>
+		<div class="wrap2">
+		  <div class="grid">1/3</div>
+		  <div class="grid">1/3</div>
+		  <div class="grid">1/3</div>
+		</div>
+		<div class="wrap3">
+		  <div class="grid">1/4</div>
+		  <div class="grid">1/4</div>
+		  <div class="grid">1/4</div>
+		  <div class="grid">1/4</div>
+		</div>
+		<div class="wrap4">
+		  <div class="grid">高度随右侧内容自动撑满</div>
+		  <div class="grid">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.</div>
+		</div>
+  </div>
+	
+	<div class="cont3">3.flex布局-媒体查询-响应式格栅。调整窗口大小查看效果。
+    <div class="wrap3-1">
+      <div class="grid">half/full</div>
+			<div class="grid">half/full</div>
+    </div>
+		<div class="wrap3-2">
+		  <div class="grid">half/full</div>
+		  <div class="grid">half/full</div>
+			<div class="grid">half/full</div>
+		</div>
+		<div class="wrap3-3">
+		  <div class="grid">half/full</div>
+		  <div class="grid">half/full</div>
+		  <div class="grid">half/full</div>
+			<div class="grid">half/full</div>
+		</div>
+		<div class="wrap3-4">
+		  <div class="grid">half/full</div>
+		  <div class="grid">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.</div>
+		</div>
+  </div>
+	
+	
+	<div class="cont2">2.flex布局-格栅-指定比例。调整窗口大小查看效果。
+    <div class="wrap2-1">
+      <div class="grid">1/2</div>
+      <div class="grid auto">auto</div>
+			<div class="grid auto">auto</div>
+    </div>
+		<div class="wrap2-2">
+		  <div class="grid auto">1/3</div>
+		  <div class="grid auto">auto</div>
+		</div>
+		<div class="wrap2-3">
+		  <div class="grid">1/4</div>
+		  <div class="grid auto">auto</div>
+		  <div class="grid">1/3</div>
+		</div>
+		<div class="wrap2-4">
+		  <div class="grid">高度随右侧内容自动撑满</div>
+		  <div class="grid">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.</div>
+		</div>
+  </div>
+	
+</div>
+</body>
+</html>

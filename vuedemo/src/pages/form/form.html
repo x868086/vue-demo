@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    html,body,div,p,a{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    background:#2BDDC9;
+}
+
+
+form{
+    text-align:center;
+    width:330px;
+    height:480px;
+    background:#fff;
+    border-radius:5px;
+    box-shadow:1px 2px 15px rgba(0,0,0,.3);
+    margin:0 auto;
+    margin-top:30px;
+    padding:35px;
+}
+
+form p:nth-child(1){
+    color:#2BDDC9;
+    text-align:center;
+    font-size:28px;
+}
+
+form p:nth-child(2){
+    text-align:center;
+    font-size:16px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+span{
+    width:150px;
+    height:30px;
+    border:1px solid #ddd;
+    padding:10px 25px;
+    color:#34354A;
+    cursor:pointer;
+}
+
+span:hover{
+    color:#2BDDC9;
+    border-color:#2BDDC9;
+}
+
+.tel input,.msg input{
+    outline:none;
+    border:none;
+    width:280px;
+    padding:8px 10px;
+    margin-top:30px;
+    border:1px solid #ddd;
+}
+
+.btn{
+    outline:none;
+    border:none;
+    display:block;
+    margin:0 auto;
+    width:300px;
+    padding:8px 10px;
+    background:#2BDDC9;
+    color:#fff;
+    font-size:16px;
+    margin-top:50px;
+    margin-bottom:50px;
+    cursor:pointer;
+}
+
+.submit{
+    color:#ccc;
+    font-size:14px;
+}
+
+
+    </style>
+    <title>form</title>
+</head>
+<body>
+    <div id="container">
+        <form action="#" method="POST" name="regist">
+                <p>系统帐号注册</p>
+                <p>使用手机号注册</p>
+                <span>BSS系统帐号</span>
+                <span>CBSS系统帐号</span>
+                <div class="tel">
+                    <input type="text" name="tel" placeholder="手机号">
+                </div>
+                <div class="msg">
+                    <input type="text" name="msg" placeholder="短信验证码">
+                </div>
+                <input class="btn" type="submit" value="注册">
+                <div class="submit">
+                    <input type="checkbox" name="infor" id="checkinfo">
+                    <label for="checkinfo">同意用户协议及隐私政策</label>
+                </div>
+                
+        </form>
+
+
+    </div>
+</body>
+</html>

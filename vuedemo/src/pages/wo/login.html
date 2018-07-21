@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="apple-mobile-web-app-title" content="联通wo助手">
+<meta name="viewport" content="user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+<title>联通wo助手</title>
+
+<link rel="stylesheet" href="./login_files/login.css">
+</head>
+<body>
+	<div class="login-page page-view center-box ng-scope">
+		<div class="wrapper">
+			<section class="logo-section">
+				<h1>LOGO</h1>
+				<div class="slogan">
+					<p>人人都是营业员，处处都是营业厅</p>
+					<p>时时都能卖产品，天天都在做维系</p>
+				</div>
+			</section>
+			<section ng-class="{ show: login.needLogin }" class="login-section show">
+				<form name="loginForm" method="post" class="login-form ng-pristine ng-invalid ng-invalid-required">
+					<div class="control-group underline phonebox box">
+						<img ng-src="img/icon_phone_1.png" src="./login_files/icon_phone_1.png">
+						<input type="tel" placeholder="手机号" id="email" name="username" required="true" class="ng-pristine ng-untouched ng-invalid ng-invalid-required">
+					</div>
+					<div class="control-group underline passwordbox box">
+						<img ng-src="img/icon_key_1.png" src="./login_files/icon_key_1.png"> 
+						<input type="password" id="password" placeholder="密码" name="password" required="true" autocomplete="off" onfocus="this.type=&#39;password&#39;" class="ng-pristine ng-untouched ng-invalid ng-invalid-required">
+					</div>
+					<div class="remember-pwd">
+						<input type="checkbox" id="isRemberPwdId" class="ng-pristine ng-untouched ng-valid"> 
+						<label for="remember_pwd">自动登陆</label>
+					</div>
+					<div class="control-group">
+						<button type="button" onclick="login()" class="btn login-btn" style="-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">登录</button>
+					</div>
+				</form>
+				<div class="other-section">
+					<a id="forgot-pwd-btn" href="javascript:findpwd()">找回密码</a> 
+					<a id="line">|</a> <a id="register-btn" href="http://wozs.bftel.org.cn:9988/register.html">注册</a>
+				</div>
+			</section>
+		</div>
+
+	</div>
+
+<script src="./login_files/jquery.min.js"></script>
+<script src="./login_files/commUtil.js"></script>
+<script src="./login_files/BASE64.js"></script>
+<script>
+	$(document).ready(
+			function() {
+				//读取 localStage 本地存储，填充用户名密码,如果自动登录有值直接跳转；
+				//相反，跳转到本页面,等待登陆处理
+				var msg = getUrlParam("msg");
+				if (msg != null && msg.length > 0)
+					alert(decodeURI(msg));
+				else {
+					var getEmail = getCookie('email');
+					var getPwd = getCookie('password');
+					var getisstroepwd = getCookie('isstorePwd');
+
+					//alert(getEmail + "," + getPwd + "," + getisstroepwd);
+					if (getEmail != null && getEmail.length > 0)
+						$("#email").val(getEmail);
+					if (getPwd != null)
+						$("#password").val(getPwd);
+
+					document.getElementById("isRemberPwdId").checked = true;
+
+					if (getisstroepwd != null && "yes" == getisstroepwd) {
+						if ((("" != getEmail) || (null != getEmail))
+								&& (("" != getPwd) || (null != getPwd))) {
+							sendLogin(getEmail, getPwd);
+						}
+					}
+				}
+			});
+
+	function login() {
+		var userEmail = $("#email").val();
+		var userPassWord = $("#password").val();
+		var storage = window.localStorage;
+
+		storage["email"] = userEmail;
+		storage["password"] = userPassWord;
+		storage["isstorePwd"] = "yes";
+
+		setCookie('email', userEmail,999);
+		setCookie('password', userPassWord,999);
+		setCookie('isstorePwd', "yes",999);
+		
+		sendLogin(userEmail, userPassWord);
+	}
+
+	function sendLogin(userEmail, userPassWord) {
+		document.loginForm.action = "/userLogin.do?method=login";
+		//var b = new Base64();
+		//var ts=b.encode(userPassWord);
+		//document.getElementById("password").value = ts;
+		
+		document.loginForm.submit();
+
+	}
+
+	function findpwd() {
+		$("#forgot-pwd-btn").hide();
+		var userEmail = $("#email").val();
+		if ("" == userEmail || null == userEmail) {
+			alert("请输入您登陆的手机号码");
+		} else {
+			$.ajax({
+				url : '/userLogin.do?method=findpwd',
+				data : {
+					username : userEmail,
+				},
+				dataType : 'text',
+				async : false,
+				success : function(data) {
+					if (data == "fail") {
+						alert("该手机号码未注册！");
+					} else if(data == "ok") {
+						alert("您的登陆密码已通过短信发送到你的手机 ，请注意查收！");
+					}else{
+						alert("找回密码短信已经发送，如果没收到，请稍后再试！");
+					}
+				},
+				error : function() {
+					alert("系统错误,请稍后尝试！");
+				}
+			});
+		}
+		$("#forgot-pwd-btn").show();
+	}
+</script>
+</body></html>
