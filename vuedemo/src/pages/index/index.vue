@@ -63,6 +63,14 @@ export default {
             ],
             jscomponents:[
                 {
+                    title:'JS布局-AJAX获取数据瀑布流布局',
+                    link:'waterfall.html'
+                },
+                {
+                    title:'JS布局-木桶布局',
+                    link:'barrels.html'
+                },
+                {
                     title:'JS组件-面向对象-轮播图(带缩略图)',
                     link:'carousel.html'
                 },
@@ -79,13 +87,13 @@ export default {
                     link:'backtop.html'
                 },
                 {
-                    title:'JS布局-AJAX获取数据瀑布流布局',
-                    link:'waterfall.html'
+                    title:'JS组件-模态框',
+                    link:'modualcover.html'
                 },
                 {
-                    title:'JS布局-木桶布局',
-                    link:'barrels.html'
-                },
+                    title:'jquery DOM操作',
+                    link:'jquerydom.html'
+                }
             ],
             htmlui:[
                 {
