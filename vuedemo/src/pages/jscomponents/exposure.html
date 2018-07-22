@@ -34,6 +34,11 @@
             margin-bottom:30px;
             text-align:center;
         }
+
+        @keyframes load{
+            0%{}
+            25%{transform:scale(2,2)}
+        }
     </style>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js">
     </script>
@@ -292,7 +297,7 @@
                     }
                     loading=setTimeout(function(){
                         _this.renderNode(this.el)
-                    },1000)
+                    },500)
                 })
             }
 
@@ -319,7 +324,7 @@
         }
 
         function shackfont($el){
-            $el.text("LOADED").css({"color":"black","font-weight":"bolder"})
+            $el.text("LOADED").css({"color":"black","font-weight":"bolder","animation":"load 2s linear 1"})
         }
 
         Exposure.exposure($(".img-wrap>li>a>img"),loadImg)

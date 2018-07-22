@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="3D banner" />
+  <meta charset="utf-8">
+  <title>3D banner</title>
+<style id="jsbin-css">
+*{box-sizing: border-box;}
+#test{
+
+  background: white;
+  padding: 10px 10px; 
+  margin: 10px auto;
+
+
+  perspective: 1000px;
+}
+#banner{
+  height: 300px;
+  width:1024px;
+  margin: 0 auto;
+  background:  #37D7B2;
+  transition: transform 0.1s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  text-align: center;
+  line-height: 300px;
+  font-size: 50px;
+  color: #fff;
+}
+body{
+  background: white;
+}
+html,body,div{
+	margin:0px;
+	padding:0px;
+	/* height:100%; */
+	text-align:center;
+	border-radius:3px;
+}
+
+#container{
+	display:flex;
+	flex-direction:column;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.head{
+  height:90px;
+	background:#ccc;
+	margin:10px 0px 20px 0px;
+	box-shadow:3px 3px 3px #ccc;
+}
+
+.footer{
+	height:50px;
+	background:#ccc;
+	margin-top:20px;
+	box-shadow:3px 3px 3px #ccc;
+}
+
+.main{
+	display:flex;
+	justify-content:space-between;
+}
+
+.nav{
+	width:160px;
+	height:400px;
+	background:#ccc;
+	order:-1;
+	box-shadow:3px 3px 3px #ccc;
+}
+
+.aside{
+	width:120px;
+	height:400px;
+	background:#ccc;
+	box-shadow:3px 3px 3px #ccc;
+}
+
+.content{
+  width:100%;
+	margin-left:20px;
+	margin-right:20px;
+	background:#ccc;
+	box-shadow:3px 3px 3px #ccc;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<body>
+  <div id="container">
+		<div class="head">head</div>
+                  <div id="test">
+            <div id="banner" >3D banner</div>
+          </div>
+		<div class="main">
+			<div class="content">content</div>
+			<div class="nav">nav</div>
+			<div class="aside">aside</div>
+		</div>
+		<div class="footer">footer</div>
+
+  </div>
+
+  <script>
+$('#test').on('mousemove', function(e){
+ console.log(1)
+  var offset = $('#test').offset()
+  
+  var x = e.pageX - offset.left
+  var y = e.pageY - offset.top
+  
+  
+  var centerX = $('#test').outerWidth() /2
+  var centerY = $('#test').outerHeight() /2 
+  
+  var deltaX = x - centerX
+  var deltaY = y - centerY
+  
+  var percentX = deltaX / centerX
+  var percentY = deltaY / centerY
+  
+  var deg = 10
+  
+  
+  
+  $('#banner').css({
+    transform: 'rotateX('+deg*-percentY + 'deg)'+
+    ' rotateY('+deg*percentX+'deg)'
+  })
+})
+</script>
+</body>
+</html>

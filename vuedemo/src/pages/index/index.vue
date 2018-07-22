@@ -93,6 +93,9 @@ export default {
                 {
                     title:'jquery DOM操作',
                     link:'jquerydom.html'
+                },{
+                    title:'jquery 3Dbanner',
+                    link:'banner.html'
                 }
             ],
             htmlui:[
